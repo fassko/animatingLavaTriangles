@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		634DB1C620A772E100990B81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DB1C520A772E100990B81 /* AppDelegate.swift */; };
 		634DB1C820A772E100990B81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DB1C720A772E100990B81 /* ViewController.swift */; };
-		634DB1CB20A772E100990B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634DB1C920A772E100990B81 /* Main.storyboard */; };
 		634DB1CD20A772E300990B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634DB1CC20A772E300990B81 /* Assets.xcassets */; };
+		634DB1D520A7739200990B81 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DB1D420A7739200990B81 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		634DB1C220A772E100990B81 /* LavaTrianglesBackground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LavaTrianglesBackground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634DB1C520A772E100990B81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634DB1C720A772E100990B81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		634DB1CA20A772E100990B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		634DB1CC20A772E300990B81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		634DB1CE20A772E300990B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		634DB1D420A7739200990B81 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			children = (
 				634DB1C520A772E100990B81 /* AppDelegate.swift */,
 				634DB1C720A772E100990B81 /* ViewController.swift */,
-				634DB1C920A772E100990B81 /* Main.storyboard */,
+				634DB1D420A7739200990B81 /* BackgroundView.swift */,
 				634DB1CC20A772E300990B81 /* Assets.xcassets */,
 				634DB1CE20A772E300990B81 /* Info.plist */,
 			);
@@ -120,7 +120,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				634DB1CD20A772E300990B81 /* Assets.xcassets in Resources */,
-				634DB1CB20A772E100990B81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,23 +130,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634DB1D520A7739200990B81 /* BackgroundView.swift in Sources */,
 				634DB1C820A772E100990B81 /* ViewController.swift in Sources */,
 				634DB1C620A772E100990B81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		634DB1C920A772E100990B81 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				634DB1CA20A772E100990B81 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		634DB1CF20A772E300990B81 /* Debug */ = {
@@ -266,9 +255,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LavaTrianglesBackground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -276,6 +264,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fassko.LavaTrianglesBackground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
@@ -285,9 +274,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LavaTrianglesBackground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -295,6 +283,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fassko.LavaTrianglesBackground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};

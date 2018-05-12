@@ -12,14 +12,23 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    let alphaLevels = [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      ].map { CGFloat($0) }
+    
+    let backgroundAnimationView = BackgroundView(
+      frame: view.bounds,
+      fillColor: .red,
+      backgroundColor: .green,
+      alphaLevels: alphaLevels)
+    
+    view.addSubview(backgroundAnimationView)
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
 
 }
 
