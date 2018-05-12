@@ -81,7 +81,7 @@ class BackgroundView: UIView {
       return
     }
     
-    let animationTime = 3.0
+    let animationTime = 1.0
     
     // Spiral points
     let numberOfPoints = 500
