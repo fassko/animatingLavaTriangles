@@ -46,7 +46,7 @@ let points = createPointsOnSpiral(arc: 20, separation: 20, numPoints: 200)
 
 let radius: CGFloat = 4
 
-let center = CGPoint(x: 200, y: 200)
+let center = CGPoint(x: view.frame.width/2, y: view.frame.height/2)
 
 points.forEach { point in
   
@@ -58,5 +58,3 @@ points.forEach { point in
   
   view.layer.addSublayer(layer)
 }
-
-
