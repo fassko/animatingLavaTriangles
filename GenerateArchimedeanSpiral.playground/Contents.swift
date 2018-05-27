@@ -1,9 +1,15 @@
 import UIKit
+import PlaygroundSupport
+
+let view = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+view.backgroundColor = .white
+
+PlaygroundPage.current.liveView = view
 
 func p2c(radius: Double, phi: Double) -> CGPoint {
   
-  var x = radius * cos(phi)
-  var y = radius * sin(phi)
+  let x = radius * cos(phi)
+  let y = radius * sin(phi)
   
   return CGPoint(x: CGFloat(x), y: CGFloat(y))
 }
@@ -36,4 +42,21 @@ private func createPointsOnSpiral(arc: Double, separation: Double, numPoints: In
   return result
 }
 
-let points = createPointsOnSpiral(arc: 20, separation: 1, numPoints: 30)
+let points = createPointsOnSpiral(arc: 20, separation: 20, numPoints: 200)
+
+let radius: CGFloat = 4
+
+let center = CGPoint(x: 200, y: 200)
+
+points.forEach { point in
+  
+  let dotPath = UIBezierPath(ovalIn: CGRect(x: point.x + center.x, y: point.y + center.y, width: radius, height: radius))
+  
+  let layer = CAShapeLayer()
+  layer.path = dotPath.cgPath
+  layer.strokeColor = UIColor.blue.cgColor
+  
+  view.layer.addSublayer(layer)
+}
+
+
