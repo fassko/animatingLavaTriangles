@@ -1,11 +1,13 @@
 import UIKit
 import PlaygroundSupport
 
-let view = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+let viewSize: CGFloat = 500
+let view = UIView(frame: CGRect(x: 0, y: 0, width: viewSize, height: viewSize))
 view.backgroundColor = .white
 
 PlaygroundPage.current.liveView = view
 
+/// Polar to cortesian coordinates
 func p2c(radius: Double, phi: Double) -> CGPoint {
   
   let x = radius * cos(phi)
@@ -14,6 +16,7 @@ func p2c(radius: Double, phi: Double) -> CGPoint {
   return CGPoint(x: CGFloat(x), y: CGFloat(y))
 }
 
+/// Create points on spiral
 private func createPointsOnSpiral(arc: Double, separation: Double, numPoints: Int) -> [CGPoint] {
   var numPoints = numPoints
   
@@ -42,19 +45,43 @@ private func createPointsOnSpiral(arc: Double, separation: Double, numPoints: In
   return result
 }
 
-let points = createPointsOnSpiral(arc: 20, separation: 20, numPoints: 200)
+let points = createPointsOnSpiral(arc: 20, separation: 20, numPoints: 500)
 
-let radius: CGFloat = 4
+let centerPoint = CGPoint(x: view.frame.width/2, y: view.frame.height/2)
 
-let center = CGPoint(x: view.frame.width/2, y: view.frame.height/2)
+let radius: CGFloat = 6
+
+var linePath = UIBezierPath()
+var movedToStart = false
+
 
 points.forEach { point in
+  if !movedToStart {
+    linePath.move(to: CGPoint(x: point.x + centerPoint.x,
+                              y: point.y + centerPoint.y))
+    movedToStart = true
+  } else {
+    linePath.addLine(to: CGPoint(x: point.x + centerPoint.x,
+                               y: point.y + centerPoint.y))
+  }
   
-  let dotPath = UIBezierPath(ovalIn: CGRect(x: point.x + center.x, y: point.y + center.y, width: radius, height: radius))
-  
+  let circleRect = CGRect(x: point.x + centerPoint.x - radius/2,
+                          y: point.y + centerPoint.y - radius/2,
+                          width: radius,
+                          height: radius)
+  let dotPath = UIBezierPath(ovalIn: circleRect)
+
   let layer = CAShapeLayer()
   layer.path = dotPath.cgPath
-  layer.strokeColor = UIColor.blue.cgColor
-  
+  layer.strokeColor = UIColor.black.cgColor
   view.layer.addSublayer(layer)
 }
+
+
+let shapeLayer = CAShapeLayer()
+shapeLayer.path = linePath.cgPath
+shapeLayer.strokeColor = UIColor.black.cgColor
+shapeLayer.lineWidth = 1.0
+shapeLayer.fillColor = UIColor.clear.cgColor
+
+view.layer.addSublayer(shapeLayer)
