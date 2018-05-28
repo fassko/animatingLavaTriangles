@@ -54,7 +54,6 @@ let radius: CGFloat = 6
 var linePath = UIBezierPath()
 var movedToStart = false
 
-
 points.forEach { point in
   if !movedToStart {
     linePath.move(to: CGPoint(x: point.x + centerPoint.x,
