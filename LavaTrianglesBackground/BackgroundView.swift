@@ -8,31 +8,6 @@
 import UIKit
 import QuartzCore
 
-// MARK: DispatchQueue extensions
-extension DispatchQueue {
-  
-  /**
-   Start background thread
-   
-   - Parameters:
-   - delay: Delay in seconds, default 0.0
-   - background: Block to execute in background
-   - completion: Completion block
-   */
-  static func background(delay: Double = 0.0, background: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
-    DispatchQueue.global(qos: .background).async {
-      background?()
-      
-      if let completion = completion {
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
-          completion()
-        })
-      }
-    }
-  }
-  
-}
-
 /// Animatable beziers element
 typealias AnimatableElement = (points1: [CGPoint], points2: [CGPoint], points3: [CGPoint], layer: CAShapeLayer)
 
@@ -415,4 +390,29 @@ class BackgroundView: UIView {
     
     return result
   }
+}
+
+// MARK: DispatchQueue extensions
+extension DispatchQueue {
+  
+  /**
+   Start background thread
+   
+   - Parameters:
+   - delay: Delay in seconds, default 0.0
+   - background: Block to execute in background
+   - completion: Completion block
+   */
+  static func background(delay: Double = 0.0, background: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
+    DispatchQueue.global(qos: .background).async {
+      background?()
+      
+      if let completion = completion {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
+          completion()
+        })
+      }
+    }
+  }
+  
 }
