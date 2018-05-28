@@ -1,7 +1,7 @@
 import UIKit
 import PlaygroundSupport
 
-let viewSize: CGFloat = 500
+let viewSize: CGFloat = 550
 let view = UIView(frame: CGRect(x: 0, y: 0, width: viewSize, height: viewSize))
 view.backgroundColor = .white
 
