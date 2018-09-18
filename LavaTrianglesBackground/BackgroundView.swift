@@ -193,7 +193,7 @@ class BackgroundView: UIView {
         let group = CAAnimationGroup()
         var animations: [CAAnimation] = []
 
-        group.fillMode = kCAFillModeForwards
+        group.fillMode = CAMediaTimingFillMode.forwards
         group.isRemovedOnCompletion = false
 
         for i in 0...beziers.count-2 {
@@ -203,8 +203,8 @@ class BackgroundView: UIView {
           animation.duration = animationTime
           animation.beginTime = CFTimeInterval(animationTime * Double(i))
           animation.isRemovedOnCompletion = false
-          animation.fillMode = kCAFillModeForwards
-          animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+          animation.fillMode = CAMediaTimingFillMode.forwards
+          animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
 
           animations.append(animation)
         }
